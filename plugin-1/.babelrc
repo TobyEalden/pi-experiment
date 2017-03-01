@@ -1,0 +1,13 @@
+{
+  "plugins": [
+  ],
+  "presets": [
+    "react"
+  ],
+  "env": {
+    "development": {
+      "presets": [
+      ]
+    }
+  }
+}
