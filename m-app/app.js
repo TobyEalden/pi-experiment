@@ -1,14 +1,35 @@
 import React from "react";
 
-function loadPlugin() {
-  import("plugin")
-    .then(() => {
-      console.log("********* LOADED PLUGIN");
-    });
-}
+// function loadPlugin() {
+//   import("plugin")
+//     .then(() => {
+//       console.log("********* LOADED PLUGIN");
+//     });
+// }
+
+const load = require("bundle-loader?lazy!./plugin.js");
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      plugin: null,
+    };
+  }
+  componentDidMount() {
+    load((file) => {
+      console.log("loaded: ", file);
+      this.setState({plugin: file.PluginOne});
+    });
+  }
+
   render() {
+    let Plugin;
+    let content;
+    if (this.state.plugin) {
+      Plugin = this.state.plugin;
+      content = <Plugin />;
+    }
     return (
       <div>
         <div>
@@ -16,8 +37,8 @@ class App extends React.Component {
         </div>
         <p>
           To get started, edit <code>src/App.js</code> and save to reload.
-          <Plugin1 />
         </p>
+        {content}
       </div>
     );
   }

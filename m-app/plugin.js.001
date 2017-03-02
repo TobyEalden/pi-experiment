@@ -1,0 +1,11 @@
+import React from "react";
+
+class PluginOne extends React.Component {
+  render() {
+    return (
+      <div style={{backgroundColor: "lime"}}>PLACEHOLDER</div>
+    );
+  }
+}
+
+export {PluginOne};
