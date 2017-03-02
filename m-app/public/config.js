@@ -20,6 +20,7 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "core-js": "npm:core-js@1.2.7",
     "jss": "npm:jss@6.3.0",
+    "jss-theme-reactor": "npm:jss-theme-reactor@0.10.0",
     "material-ui": "npm:material-ui@1.0.0-alpha.6",
     "pi-experiment-lib": "github:TobyEalden/pi-experiment-lib@0.1.1",
     "react": "npm:react@15.4.2",
