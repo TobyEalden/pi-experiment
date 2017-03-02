@@ -1,14 +1,8 @@
 import React from "react";
 import {factory} from "pi-experiment-lib";
-
-// function loadPlugin() {
-//   import("plugin")
-//     .then(() => {
-//       console.log("********* LOADED PLUGIN");
-//     });
-// }
-
-// const load = require("bundle-loader?lazy!./plugin.js");
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import AppBar from "material-ui/AppBar";
+import Button from "material-ui/Button";
 
 class App extends React.Component {
   constructor(props) {
@@ -17,37 +11,22 @@ class App extends React.Component {
     };
   }
   componentDidMount() {
-    // this.setState({plugin: __plugins.obj});
-
-    // load((file) => {
-    //   console.log("loaded: ", file);
-    //   this.setState({plugin: file.PluginOne});
-    // });
-
-    // SystemJS.import(this.props.pluginName).then((mod) => {
-    //   this.setState({plugin: mod.default});
-    // });
-
     this.setState({plugin: factory("AcmeInc")});
   }
 
   render() {
-    let Plugin;
     let content;
-    // if (typeof __plugins !== "undefined") {
-    //   console.log(">>>>>>>>>>>>>" + __plugins.name);
-    //   Plugin = __plugins.obj;
-    //   content = <Plugin />;
-    // }
     if (this.state.plugin) {
-      Plugin = this.state.plugin;
+      const Plugin = this.state.plugin;
       content = <Plugin />;
     }
-    return (
+    return (      
       <div>
+        <AppBar>workbench</AppBar>
         <div>
           <h2>Welcome to React</h2>
         </div>
+        <Button raised={true}>HELLO</Button>
         <p>
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
@@ -57,4 +36,10 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const AppContainer = () => (
+  <MuiThemeProvider>
+    <App />
+  </MuiThemeProvider>
+);
+
+export default AppContainer;

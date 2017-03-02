@@ -30,6 +30,9 @@
     },
     "dependencies": {
       "TobyEalden/pi-experiment-lib": "github:TobyEalden/pi-experiment-lib@0.1.1",
+      "callemall/material-ui": "github:callemall/material-ui@^0.17.0",
+      "jss": "npm:jss@^6.3.0",
+      "material-ui": "npm:material-ui@1.0.0-alpha.6",
       "pi-experiment-lib": "github:TobyEalden/pi-experiment-lib@0.1.1",
       "react": "npm:react@^15.4.2",
       "react-dom": "npm:react-dom@^15.4.2"
