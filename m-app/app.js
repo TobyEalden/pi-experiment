@@ -7,29 +7,35 @@ import React from "react";
 //     });
 // }
 
-const load = require("bundle-loader?lazy!./plugin.js");
+// const load = require("bundle-loader?lazy!./plugin.js");
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      plugin: null,
     };
   }
   componentDidMount() {
-    load((file) => {
-      console.log("loaded: ", file);
-      this.setState({plugin: file.PluginOne});
-    });
+    // this.setState({plugin: __plugins.obj});
+
+    // load((file) => {
+    //   console.log("loaded: ", file);
+    //   this.setState({plugin: file.PluginOne});
+    // });
   }
 
   render() {
     let Plugin;
     let content;
-    if (this.state.plugin) {
-      Plugin = this.state.plugin;
+    if (typeof __plugins !== "undefined") {
+      console.log(">>>>>>>>>>>>>" + __plugins.name);
+      Plugin = __plugins.obj;
       content = <Plugin />;
     }
+    // if (this.state.plugin) {
+    //   Plugin = this.state.plugin;
+    //   content = <Plugin />;
+    // }
     return (
       <div>
         <div>
